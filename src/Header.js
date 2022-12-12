@@ -2,8 +2,11 @@ import React from 'react'
 import './Header.css'
 import { Search as SearchIcon, ShoppingBasket } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
+import { useStateValue } from './StateProvider'
 
 const Header = () => {
+    const [{ basket }, dispatch] = useStateValue()
+
     return (
         <div className="header">
             <Link to="/">
@@ -21,7 +24,9 @@ const Header = () => {
             <div className="header_nav">
                 <div className="header_option">
                     <span className="header_optionLineOne">안녕하세요!</span>
-                    <span className="header_optionLineTwo">로그인하기</span>
+                    <Link to="/login" className="home_login">
+                        <span className="header_optionLineTwo">로그인하기</span>
+                    </Link>
                 </div>
                 <div className="header_option">
                     <span className="header_optionLineOne">돌아가기</span>
@@ -35,7 +40,7 @@ const Header = () => {
                     <div className="header_optionBasket">
                         <ShoppingBasket />
                         <span className="header_optionLineTwoHeader_basketCount">
-                            0
+                            {basket?.length}
                         </span>
                     </div>
                 </Link>
