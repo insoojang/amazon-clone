@@ -9,7 +9,7 @@
     max-height: 400px;
     min-width: 100px;
     background-color: white;
-    z-index:-1;
+    z-index: 1;
 }
 
 
@@ -37,7 +37,7 @@
     margin-top: 5px;
 }
 
-/*.product_info {*/
-/*    height: 100px;*/
-/*    margin-bottom: 15px;*/
-/*}*/
+.product_info {
+    height: 100px;
+    margin-bottom: 15px;
+}

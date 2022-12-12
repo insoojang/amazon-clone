@@ -2,6 +2,7 @@ import './App.css'
 import Header from './Header'
 import Home from './Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Checkout from './Checkout'
 
 function App() {
     return (
@@ -9,11 +10,15 @@ function App() {
             <div className="App">
                 <Header />
                 <Routes>
-                    <Route path="/" element={<Home />}></Route>
                     <Route
-                        path="/checkout"
-                        element={<h1>장바구니 패이지 입니다</h1>}
+                        path="/"
+                        element={
+                            <>
+                                <Home />
+                            </>
+                        }
                     ></Route>
+                    <Route path="/checkout" element={<Checkout />}></Route>
                 </Routes>
             </div>
         </BrowserRouter>
