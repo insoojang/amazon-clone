@@ -1,15 +1,16 @@
 import React from 'react'
 import './Product.css'
 import { useStateValue } from './StateProvider'
+import { v4 as uuidv4 } from 'uuid'
 
-const Product = ({ id, title, image, price, rating }) => {
+const Product = ({ title, image, price, rating }) => {
     const [{ basket }, dispatch] = useStateValue()
 
     const addToBasket = () => {
         dispatch({
             type: 'ADD_TO_BASKET',
             item: {
-                id,
+                id: uuidv4(),
                 title,
                 image,
                 price,
@@ -17,7 +18,6 @@ const Product = ({ id, title, image, price, rating }) => {
             },
         })
     }
-    console.log('장바구니', basket)
     return (
         <div className="product">
             <div className="product_info">
